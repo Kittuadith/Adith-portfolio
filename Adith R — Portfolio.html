@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adith R — Portfolio</title>
+<meta name="color-scheme" content="dark">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:'#3D81E3'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+<style>
+html,body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;background:#0c0c0c;color:#fff;scroll-behavior:smooth}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+::selection{background:rgba(61,129,227,.3)}
+.bgfall{background:radial-gradient(900px circle at 50% 0%,#0B2551 0%,#0c0c0c 70%)}
+.liquid-glass{background:rgba(255,255,255,.01);background-blend-mode:luminosity;backdrop-filter:blur(4px);border:none;box-shadow:inset 0 1px 1px rgba(255,255,255,.1);position:relative;overflow:hidden}
+.liquid-glass::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1.4px;background:linear-gradient(180deg,rgba(255,255,255,.45) 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,0) 40%,rgba(255,255,255,0) 60%,rgba(255,255,255,.15) 80%,rgba(255,255,255,.45) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.shiny{background-image:linear-gradient(to right,#091020 0%,#0B2551 12.5%,#A4F4FD 32.5%,#00d2ff 50%,#0B2551 67.5%,#091020 87.5%,#091020 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;filter:url(#c3-noise);animation:shiny 6s linear infinite}
+@keyframes shiny{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.in{opacity:0;animation:up .8s cubic-bezier(.22,1,.36,1) forwards}
+.rv{opacity:0;transform:translateY(24px);transition:all .8s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+/* pricing-style */
+.c3-pricing-section{position:relative;padding:40px 20px 80px;display:flex;flex-direction:column;align-items:center;overflow-x:hidden}
+.c3-watermark-container{position:relative;width:100%;max-width:1100px;text-align:center;margin-top:40px;z-index:2}
+.c3-watermark-main{font-size:9rem;font-weight:800;line-height:.9;letter-spacing:-.05em;filter:url(#c3-noise);display:flex;flex-direction:column;align-items:center}
+.c3-watermark-line-1{color:#fff}
+.c3-watermark-line-2{background:linear-gradient(to right,#091020 0%,#0B2551 25%,#A4F4FD 65%,#00d2ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.c3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:100%;max-width:1100px;margin-top:60px;transform:translateX(20px);position:relative;z-index:3}
+.c3-card{background:linear-gradient(135deg,rgba(0,0,0,.7),rgba(0,0,0,.4));backdrop-filter:blur(14px) brightness(.91);border:1px solid #fff;border-radius:44px;padding:50px 24px;min-height:520px;display:flex;flex-direction:column;transition:all .6s cubic-bezier(.22,1,.36,1);overflow:hidden;position:relative}
+.c3-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,rgba(255,255,255,0) 50%);pointer-events:none}
+.c3-card:hover{background:rgba(15,15,15,.6);border-color:rgba(34,211,238,.7);transform:translateY(-12px) scale(1.01)}
+.c3-card-pro{background:linear-gradient(135deg,rgba(0,0,0,.85),rgba(0,0,0,.55))}
+.c3-tier-small{font-size:1.1rem;color:rgba(255,255,255,.6)}
+.c3-tier-large{font-size:2.2rem;font-weight:500;letter-spacing:-.02em;margin-top:8px}
+.c3-desc{font-size:.88rem;color:rgba(255,255,255,.45);min-height:3.2em;margin-top:16px;margin-bottom:32px;line-height:1.5}
+.c3-list{list-style:none;padding:0;margin:0 0 24px}
+.c3-list li{display:flex;align-items:flex-start;gap:14px;font-size:.92rem;color:rgba(255,255,255,.8);margin-bottom:18px;line-height:1.4}
+.c3-check{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.15);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.c3-btn{background:#fff;color:#000;padding:10px 32px;border-radius:100px;font-weight:600;font-size:.88rem;margin-top:auto;border:none;cursor:pointer;align-self:center;transition:all .3s cubic-bezier(.22,1,.36,1);text-decoration:none}
+.c3-btn:hover{background:#f5f5f5;transform:scale(1.02);box-shadow:0 8px 24px rgba(255,255,255,.15)}
+@media(max-width:1024px){
+.c3-watermark-main{font-size:3.5rem;filter:none}
+.c3-watermark-line-2{background:none;-webkit-text-fill-color:#00d2ff;color:#00d2ff}
+.c3-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;transform:none;width:100vw;padding:0 20px;gap:16px;scrollbar-width:none}
+.c3-card{flex:0 0 320px;scroll-snap-align:center}
+.c3-grid::-webkit-scrollbar{display:none}}
+</style>
+</head>
+<body class="relative min-h-screen overflow-x-hidden bg-[#0c0c0c] text-white">
+<svg width="0" height="0" style="position:absolute"><filter id="c3-noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0"/><feComposite in2="SourceGraphic" operator="in" result="noise"/><feBlend in="SourceGraphic" in2="noise" mode="multiply"/></filter></svg>
+
+<div class="fixed inset-0 z-0 pointer-events-none bgfall">
+<video autoplay loop muted playsinline class="w-full h-full object-cover pointer-events-none" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260508_064122_c4750c0e-7476-4b44-94a2-a85a65c63bf2.mp4"></video>
+</div>
+<div class="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 -translate-x-[calc(50%+36rem)] w-px bg-white/10 z-[5]"></div>
+<div class="hidden md:block pointer-events-none fixed inset-y-0 left-1/2 translate-x-[calc(-50%+36rem)] w-px bg-white/10 z-[5]"></div>
+
+<div class="relative z-10">
+<!-- NAV -->
+<nav class="in max-w-6xl mx-auto px-6 py-6 flex items-center justify-between" style="animation-delay:0s">
+<a href="#top" aria-label="Home"><svg viewBox="0 0 256 256" class="w-8 h-8" fill="#fff"><path d="M 0 128 C 70.692 128 128 185.308 128 256 L 64 256 C 64 220.654 35.346 192 0 192 Z M 256 192 C 220.654 192 192 220.654 192 256 L 128 256 C 128 185.308 185.308 128 256 128 Z M 128 0 C 128 70.692 70.692 128 0 128 L 0 64 C 35.346 64 64 35.346 64 0 Z M 192 0 C 192 35.346 220.654 64 256 64 L 256 128 C 185.308 128 128 70.692 128 0 Z"/></svg></a>
+<div class="hidden md:flex gap-8">
+<a class="text-white/70 text-sm font-medium hover:text-white" href="#about">About</a>
+<a class="text-white/70 text-sm font-medium hover:text-white" href="#projects">Projects</a>
+<a class="text-white/70 text-sm font-medium hover:text-white" href="#skills">Skills</a>
+<a class="text-white/70 text-sm font-medium hover:text-white" href="#education">Education</a>
+<a class="text-white/70 text-sm font-medium hover:text-white" href="#profile">Profile</a>
+</div>
+<a href="#contact" class="group inline-flex items-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98]">Contact Adith <span class="transition-transform group-hover:translate-x-px">›</span></a>
+</nav>
+
+<!-- HERO -->
+<header id="top" class="max-w-6xl mx-auto px-6 pt-16 md:pt-28 pb-20 text-center flex flex-col items-center">
+<h1 class="in text-4xl md:text-7xl font-semibold tracking-tight leading-[0.9]" style="animation-delay:.3s">Adith R.<br><span class="shiny">Future Pen Tester</span></h1>
+<p class="in mt-8 text-white/60 max-w-md text-base leading-[1.5]" style="animation-delay:.5s">BCA graduate with a foundation in Python, PHP and JavaScript, now training in AI-integrated cybersecurity and ethical hacking to become a penetration tester.</p>
+<div class="in mt-8 flex flex-col items-center gap-3" style="animation-delay:.7s">
+<a href="#projects" class="group inline-flex items-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98]">View my project <span class="transition-transform group-hover:translate-x-px">›</span></a>
+<span class="text-xs text-white/40">Fresher · Ready to start immediately</span>
+</div>
+</header>
+
+<!-- MENU BAR -->
+<div class="in h-10 bg-black/40 backdrop-blur-md border-t border-b border-white/10" style="animation-delay:.9s">
+<div class="max-w-6xl mx-auto px-6 h-full flex items-center justify-between text-xs">
+<div class="flex items-center gap-4 text-white/70"><span class="font-bold text-white">Adith</span><span>About</span><span>Projects</span><span>Skills</span><span class="hidden sm:inline">Education</span><span class="hidden md:inline">Contact</span></div>
+<span class="text-white/70">Kollam, Kerala · Open to relocate</span>
+</div></div>
+
+<!-- MOCKUP -->
+<section id="projects" class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+<div class="rv relative rounded-2xl overflow-hidden border border-white/10 bg-[#0e1014]/90 backdrop-blur-2xl">
+<div class="flex items-center gap-2 px-4 py-3 border-b border-white/10 relative">
+<span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span><span class="w-3 h-3 rounded-full" style="background:#febc2e"></span><span class="w-3 h-3 rounded-full" style="background:#28c840"></span>
+<span class="absolute left-1/2 -translate-x-1/2 text-xs text-white/50">Adith — Portfolio</span></div>
+<div class="grid grid-cols-12 md:h-[520px]">
+<aside class="hidden md:block col-span-3 border-r border-white/10 bg-black/30 p-4">
+<div class="rounded-lg bg-white text-black text-xs font-semibold px-3 py-2 text-center">✦ Hire Adith</div>
+<ul class="mt-4 space-y-1 text-xs">
+<li class="flex justify-between px-3 py-2 rounded-md bg-white/10 text-white"><span>Projects</span><span>1</span></li>
+<li class="flex justify-between px-3 py-2 rounded-md text-white/60"><span>Skills</span><span>5</span></li>
+<li class="flex justify-between px-3 py-2 rounded-md text-white/60"><span>Education</span><span>3</span></li>
+<li class="flex justify-between px-3 py-2 rounded-md text-white/60"><span>Coursework</span><span>5</span></li>
+<li class="px-3 py-2 rounded-md text-white/60">Languages</li></ul>
+<p class="mt-6 text-[10px] uppercase tracking-widest text-white/40">Focus</p>
+<ul class="mt-2 space-y-2 text-xs text-white/60">
+<li class="flex items-center gap-2"><i class="w-2 h-2 rounded-full" style="background:#00d2ff"></i>Web</li>
+<li class="flex items-center gap-2"><i class="w-2 h-2 rounded-full" style="background:#A4F4FD"></i>Python</li>
+<li class="flex items-center gap-2"><i class="w-2 h-2 rounded-full" style="background:#f59e0b"></i>Security</li>
+<li class="flex items-center gap-2"><i class="w-2 h-2 rounded-full" style="background:#10b981"></i>Databases</li></ul>
+</aside>
+<div class="hidden md:block col-span-4 border-r border-white/10 overflow-hidden">
+<div class="px-4 py-3 border-b border-white/10 text-xs text-white/40">⌕ Search portfolio</div>
+<div class="text-xs">
+<div class="px-4 py-3 border-b border-white/5 bg-white/[0.06]"><div class="flex justify-between"><b>Army CSD System</b><span class="text-white/40">2026</span></div><div class="text-white/80">Full-stack mini project</div><div class="text-white/40 truncate">Inventory, sales and user management…</div></div>
+<div class="px-4 py-3 border-b border-white/5"><div class="flex justify-between"><b>BCA</b><span class="text-white/40">2026</span></div><div class="text-white/80">Yeldo Mar Baselios College</div><div class="text-white/40 truncate">Kothamangalam, Kerala</div></div>
+<div class="px-4 py-3 border-b border-white/5"><div class="flex justify-between"><b>Ethical Hacking</b><span class="text-white/40">Now</span></div><div class="text-white/80">CyberBee Academy</div><div class="text-white/40 truncate">AI-integrated cybersecurity program</div></div>
+<div class="px-4 py-3 border-b border-white/5"><div class="flex justify-between"><b>Skills</b><span class="text-white/40">Core</span></div><div class="text-white/80">C, C++, Python, PHP, JavaScript</div><div class="text-white/40 truncate">HTML, CSS, basic MySQL</div></div>
+<div class="px-4 py-3 border-b border-white/5"><div class="flex justify-between"><b>Availability</b><span class="text-white/40">Now</span></div><div class="text-white/80">Ready to start immediately</div><div class="text-white/40 truncate">Willing to relocate across India</div></div>
+<div class="px-4 py-3"><div class="flex justify-between"><b>Languages</b><span class="text-white/40">3</span></div><div class="text-white/80">English, Hindi, Malayalam</div></div>
+</div></div>
+<div class="col-span-12 md:col-span-5 p-5 md:p-6 overflow-hidden">
+<h3 class="text-lg font-semibold">Army CSD Management System</h3>
+<div class="mt-3 flex items-center gap-2 text-xs"><span class="w-7 h-7 rounded-full bg-gradient-to-br from-[#00d2ff] to-[#0B2551] flex items-center justify-center font-semibold">A</span><div><div class="font-medium">Adith R</div><div class="text-white/40">Mini project · BCA</div></div><span class="ml-auto px-2 py-0.5 rounded-full border border-white/10 text-white/60">Full-stack</span></div>
+<div class="mt-4 rounded-lg border border-white/10 bg-white/[0.03] p-3 text-xs"><div class="flex items-center gap-2 mb-1" style="color:#A4F4FD">✦ <b>Summary by Aura</b></div><p class="text-white/70 leading-[1.6]">A web app that digitizes Indian Army Canteen Store Department operations — real-time inventory and transactions for 100+ items, with secure authentication.</p></div>
+<div class="mt-4 space-y-3 text-sm text-white/80 leading-[1.6]">
+<p>Built as a complete full-stack application with PHP and JavaScript, plus Python scripting for data processing, replacing manual processes.</p>
+<p>Core modules: admin dashboard, product catalog, order processing and reporting — with database integration and a responsive UI that works across devices.</p>
+<p class="text-white/50">— Adith R</p></div>
+<div class="mt-4 inline-flex items-center gap-2 text-xs px-3 py-2 rounded-lg border border-white/10 bg-white/5">📎 PHP · JavaScript · Python · MySQL</div>
+</div></div></div>
+</section>
+
+<!-- ABOUT / SKILLS -->
+<section id="about" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+<div class="grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+<div class="rv">
+<span class="inline-flex items-center gap-2 text-xs text-white/70"><span class="w-1.5 h-1.5 rounded-full bg-white"></span>About <span class="px-2 py-0.5 rounded-full border border-white/10 text-white/50">Fresher</span></span>
+<h2 class="mt-5 text-3xl md:text-5xl font-semibold tracking-tight leading-[1.02]">Building today,<br>breaking in tomorrow.</h2>
+<p class="mt-6 text-white/60 text-base leading-[1.6] max-w-md">A quick learner with a clear grasp of requirements, strong written and verbal communication, and a passion for efficient, user-friendly solutions. Now adding an offensive-security mindset to a solid development base.</p>
+<div class="mt-6 flex flex-wrap gap-2">
+<span class="text-xs text-white/70 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">Problem-solving</span>
+<span class="text-xs text-white/70 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">Critical thinking</span>
+<span class="text-xs text-white/70 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">Clear documentation</span>
+<span class="text-xs text-white/70 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03]">Team collaboration</span></div>
+</div>
+<div id="skills" class="rv liquid-glass rounded-2xl p-5">
+<p class="text-xs text-white/50 mb-4">Skills · organized by Aura</p>
+<div class="grid grid-cols-2 gap-3">
+<div class="liquid-glass rounded-lg p-3"><div class="flex items-center gap-2 text-sm font-medium"><i class="w-2 h-2 rounded-full" style="background:#fff"></i>Languages <span class="ml-auto text-white/40 text-xs">5</span></div><p class="mt-2 text-xs text-white/60">C, C++, Python, PHP, JavaScript</p></div>
+<div class="liquid-glass rounded-lg p-3"><div class="flex items-center gap-2 text-sm font-medium"><i class="w-2 h-2 rounded-full" style="background:#e5e5e5"></i>Web <span class="ml-auto text-white/40 text-xs">3</span></div><p class="mt-2 text-xs text-white/60">HTML, CSS, responsive design</p></div>
+<div class="liquid-glass rounded-lg p-3"><div class="flex items-center gap-2 text-sm font-medium"><i class="w-2 h-2 rounded-full" style="background:#a3a3a3"></i>Tools <span class="ml-auto text-white/40 text-xs">2</span></div><p class="mt-2 text-xs text-white/60">Web app development, basic MySQL</p></div>
+<div class="liquid-glass rounded-lg p-3"><div class="flex items-center gap-2 text-sm font-medium"><i class="w-2 h-2 rounded-full" style="background:#525252"></i>Spoken <span class="ml-auto text-white/40 text-xs">3</span></div><p class="mt-2 text-xs text-white/60">English (fluent), Hindi (intermediate), Malayalam (native)</p></div>
+</div></div></div>
+</section>
+
+<!-- STACK CLOUD -->
+<section class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+<p class="text-center text-xs uppercase tracking-widest text-white/40">Tools I build with</p>
+<div class="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6 text-center">
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">Python</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">PHP</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">JavaScript</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">C</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">C++</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">HTML</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">CSS</span>
+<span class="rv text-sm font-semibold tracking-tight text-white/50 hover:text-white">MySQL</span></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="max-w-6xl mx-auto px-6 py-20 md:py-28 border-t border-white/10">
+<div class="grid md:grid-cols-3 gap-5">
+<figure class="rv liquid-glass rounded-2xl p-6"><blockquote class="text-sm text-white/80 leading-[1.6]">Bachelor of Computer Applications, graduating 2026. Coursework: Web Technologies, Python, DBMS, Software Engineering, Data Structures.</blockquote><figcaption class="mt-6 pt-5 border-t border-white/10"><div class="text-sm font-semibold">BCA</div><div class="text-xs text-white/50">Kothamangalam, Kerala</div><div class="text-xs font-semibold tracking-wide">YELDO MAR BASELIOS COLLEGE</div></figcaption></figure>
+<figure class="rv liquid-glass rounded-2xl p-6"><blockquote class="text-sm text-white/80 leading-[1.6]">Higher Secondary Education (12th Grade), 2021–2023, with 74%.</blockquote><figcaption class="mt-6 pt-5 border-t border-white/10"><div class="text-sm font-semibold">12th Grade</div><div class="text-xs text-white/50">Kollam</div><div class="text-xs font-semibold tracking-wide">VVHSS POREDOM</div></figcaption></figure>
+<figure class="rv liquid-glass rounded-2xl p-6"><blockquote class="text-sm text-white/80 leading-[1.6]">Secondary Education (10th Grade), 2020–2021, with 99%.</blockquote><figcaption class="mt-6 pt-5 border-t border-white/10"><div class="text-sm font-semibold">10th Grade</div><div class="text-xs text-white/50">Anchal, Kollam</div><div class="text-xs font-semibold tracking-wide">EAST GOVT HSS</div></figcaption></figure>
+</div>
+</section>
+
+<!-- PROFILE CARDS -->
+<section id="profile" class="c3-pricing-section">
+<svg width="0" height="0" style="position:absolute"><filter id="c3-noise"><feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" stitchTiles="stitch"/><feComponentTransfer><feFuncA type="linear" slope="0.075"/></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" result="noise"/><feBlend in="SourceGraphic" in2="noise" mode="overlay"/></filter></svg>
+<div class="c3-watermark-container"><div class="c3-watermark-main"><span class="c3-watermark-line-1">Adith R.</span><span class="c3-watermark-line-2">Ready Now</span></div></div>
+<div class="c3-grid">
+<div class="c3-card"><div class="c3-tier-small">Foundation</div><div class="c3-tier-large">BCA 2026</div><p class="c3-desc">A solid computing base built through degree coursework.</p>
+<ul class="c3-list"><li><span class="c3-check">✓</span>Web Technologies</li><li><span class="c3-check">✓</span>Programming in Python</li><li><span class="c3-check">✓</span>Database Management Systems</li><li><span class="c3-check">✓</span>Software Engineering</li><li><span class="c3-check">✓</span>Data Structures</li></ul><a class="c3-btn" href="#education">See Education</a></div>
+<div class="c3-card"><div class="c3-tier-small">Practice</div><div class="c3-tier-large">Army CSD</div><p class="c3-desc">A full-stack project that replaced manual processes.</p>
+<ul class="c3-list"><li><span class="c3-check">✓</span>Secure user authentication</li><li><span class="c3-check">✓</span>Real-time inventory, 100+ items</li><li><span class="c3-check">✓</span>Admin dashboard and reports</li><li><span class="c3-check">✓</span>Order processing module</li><li><span class="c3-check">✓</span>Responsive UI</li></ul><a class="c3-btn" href="#projects">See Project</a></div>
+<div class="c3-card c3-card-pro"><div class="c3-tier-small">Direction</div><div class="c3-tier-large">Pen Tester</div><p class="c3-desc">Currently training in AI-integrated cybersecurity and ethical hacking at CyberBee Academy.</p>
+<ul class="c3-list"><li><span class="c3-check">✓</span>Ethical hacking program</li><li><span class="c3-check">✓</span>AI-integrated cybersecurity</li><li><span class="c3-check">✓</span>Developer's view of web apps</li><li><span class="c3-check">✓</span>Ready to start immediately</li><li><span class="c3-check">✓</span>Open to relocate in India</li></ul><a class="c3-btn" href="#contact">Get in touch</a></div>
+</div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="max-w-6xl mx-auto px-6 py-20 md:py-32">
+<div class="rv liquid-glass relative overflow-hidden rounded-3xl px-8 py-16 md:py-24 text-center">
+<div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(600px circle at 50% 0%,rgba(255,255,255,.15),transparent 70%);opacity:.3"></div>
+<h2 class="relative text-4xl md:text-6xl font-semibold tracking-tight leading-[1.02]">Let's build something<br>secure.</h2>
+<p class="relative mt-6 text-white/60 max-w-md mx-auto text-sm leading-[1.6]">Looking for a first opportunity in IT or cybersecurity. Available immediately, anywhere in Kerala or across India.</p>
+<div class="relative mt-8 flex flex-col sm:flex-row gap-3 justify-center items-center">
+<a href="mailto:adithr368@gmail.com" class="group inline-flex items-center gap-2 rounded-full bg-white text-black font-medium text-sm px-5 py-3 transition-all hover:bg-white/90 active:scale-[0.98]">adithr368@gmail.com <span class="transition-transform group-hover:translate-x-px">›</span></a>
+<a href="tel:+916235472565" class="inline-flex items-center gap-2 rounded-full border border-white/15 text-white text-sm font-medium px-5 py-3 hover:bg-white/5">6235472565 ›</a></div>
+<p class="relative mt-6 text-xs text-white/40">Anchal, Kollam, Kerala</p>
+</div>
+</section>
+</div>
+<script>
+try{var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%8*0.05)+'s';io.observe(el)})}catch(e){document.querySelectorAll('.rv').forEach(function(el){el.classList.add('on')})}
+</script>
+</body>
+</html>
